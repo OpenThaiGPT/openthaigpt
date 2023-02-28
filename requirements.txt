@@ -1,0 +1,4 @@
+transformers[sentencepiece]
+datasets
+#--extra-index-url https://download.pytorch.org/whl/cpu
+torch==1.13.1
