@@ -1,21 +1,15 @@
-.. highlight:: shell
-
-============
-Contributing
-============
+# Contributing
 
 Contributions are welcome, and they are greatly appreciated! Every little bit
 helps, and credit will always be given.
 
 You can contribute in many ways:
 
-Types of Contributions
-----------------------
+# Types of Contributions
 
-Report Bugs
-~~~~~~~~~~~
+## Report Bugs
 
-Report bugs at https://github.com/kobkrit/openthaigpt/issues.
+Report bugs at https://github.com/OpenThaiGPT/openthaigpt/issues.
 
 If you are reporting a bug, please include:
 
@@ -35,17 +29,15 @@ Implement Features
 Look through the GitHub issues for features. Anything tagged with "enhancement"
 and "help wanted" is open to whoever wants to implement it.
 
-Write Documentation
-~~~~~~~~~~~~~~~~~~~
+## Write Documentation
 
 OpenThaiGPT could always use more documentation, whether as part of the
 official OpenThaiGPT docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
-Submit Feedback
-~~~~~~~~~~~~~~~
+## Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/kobkrit/openthaigpt/issues.
+The best way to send feedback is to file an issue at https://github.com/OpenThaiGPT/openthaigpt/issues.
 
 If you are proposing a feature:
 
@@ -103,7 +95,7 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
 3. The pull request should work for Python 3.5, 3.6, 3.7 and 3.8, and for PyPy. Check
-   https://travis-ci.com/kobkrit/openthaigpt/pull_requests
+   https://travis-ci.com/OpenThaiGPT/openthaigpt/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
 Tips

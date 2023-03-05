@@ -5,7 +5,7 @@
 
 import unittest
 
-from openthaigpt import openthaigpt
+from openthaigpt import openthaigpt_module
 
 class TestOpenthaigpt(unittest.TestCase):
     """Tests for `openthaigpt` package."""
@@ -18,5 +18,5 @@ class TestOpenthaigpt(unittest.TestCase):
 
     def test_0000_usage(self):
         """Test something."""
-        answer = openthaigpt.generate("Q: สวัสดีครับ")
+        answer = openthaigpt_module.generate("Q: สวัสดีครับ")
         assert answer is not None

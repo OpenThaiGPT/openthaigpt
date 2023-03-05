@@ -10,7 +10,10 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+requirements = [
+    'transformers[sentencepiece]',
+    'torch'
+]
 
 test_requirements = [ ]
 
@@ -28,11 +31,13 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9'
     ],
     description="OpenThaiGPT focuses on developing a Thai Chatbot system to have capabilities equivalent to ChatGPT, as well as being able to connect to external systems and be able to retrieve data flexibly. Easily expandable and customizable and developed into Free open source software for everyone.",
     install_requires=requirements,
     license="Apache Software License 2.0",
     long_description=readme + '\n\n' + history,
+    long_description_content_type="text/markdown",
     include_package_data=True,
     keywords='openthaigpt',
     name='openthaigpt',
@@ -40,6 +45,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/OpenThaiGPT/openthaigpt',
-    version='0.0.2',
+    version='0.0.5',
     zip_safe=False,
 )

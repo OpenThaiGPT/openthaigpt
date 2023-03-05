@@ -1,13 +1,10 @@
-=======
-Credits
-=======
+# Credits
 
-Development Lead
-----------------
+
+## Development Lead
 
 * Kobkrit Viriyayudhakorn <kobkrit@iapp.co.th>
 
-Contributors
-------------
+## Contributors
 
 None yet. Why not be the first?
