@@ -1,7 +1,7 @@
 """Main module."""
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
-pretrained_name = "kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.3"
+pretrained_name = "kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.4"
 
 tokenizer = GPT2Tokenizer.from_pretrained(pretrained_name, bos_token='<|startoftext|>',unk_token='<|unk|>', eos_token='<|endoftext|>', pad_token='<|pad|>')
 model = GPT2LMHeadModel.from_pretrained(pretrained_name).cuda()
