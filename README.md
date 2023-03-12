@@ -6,11 +6,12 @@ OpenThaiGPT focuses on developing a Thai Chatbot system to have capabilities equ
 
 * Free software: Apache Software License 2.0
 * Project Homepage: https://openthaigpt.aieat.or.th
-* Documentation: https://openthaigpt.readthedocs.io.
+* Documentation: https://openthaigpt.readthedocs.io
 
-## Features
+## Versions
 
-* The Third PoC Model for OpenThaiGPT 0.0.3
+- Code version: 0.0.8
+- Model version: 0.0.4
 
 ## Installation
 Python>=3.6
