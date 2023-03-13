@@ -6,11 +6,15 @@ OpenThaiGPT focuses on developing a Thai Chatbot system to have capabilities equ
 
 * Free software: Apache Software License 2.0
 * Project Homepage: https://openthaigpt.aieat.or.th
-* Documentation: https://openthaigpt.readthedocs.io.
+* Documentation: https://openthaigpt.readthedocs.io
 
-## Features
+## Versions
 
-* The Third PoC Model for OpenThaiGPT 0.0.3
+- Code version: 0.0.8
+- Model version: 0.0.4
+  - Pretraining Model: GPT-2 Thai-base
+  - InstructDataset: 300,000 Pantip + 5,000 Wiki QA => 12,920 Thai InstructGPT
+  - Reinforcement Learning from Human Feedback (RLHF): None
 
 ## Installation
 Python>=3.6
@@ -18,7 +22,7 @@ Python>=3.6
 ### CPU-Only
 ``$ pip install openthaigpt torch --extra-index-url https://download.pytorch.org/whl/cpu``
 
-### GPU
+### With GPU
 
 CUDA 11.6
 ``$ pip install openthaigpt torch --extra-index-url https://download.pytorch.org/whl/cu116``
