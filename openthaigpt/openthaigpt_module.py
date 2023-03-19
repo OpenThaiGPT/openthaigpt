@@ -20,4 +20,4 @@ def zero(input, threshold=10):
     isGeneratedFromOpenThaiGPT = False
     if (score < threshold):
         isGeneratedFromOpenThaiGPT = True
-    return {'perplexity':score, 'theshold':threshold, 'isGeneratedFromOpenThaiGPT':isGeneratedFromOpenThaiGPT}
+    return {'perplexity':score, 'threshold':threshold, 'isGeneratedFromOpenThaiGPT':isGeneratedFromOpenThaiGPT}
