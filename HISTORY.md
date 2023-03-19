@@ -1,5 +1,13 @@
 # History
 
+0.0.9 (2023-03-19)
+
+* Release OpenThaiGPT Zero
+
+0.0.8 (2023-03-12)
+
+* Update Readme
+
 0.0.7 (2023-03-12)
 
 * Update Model to Version 0.0.4 (https://huggingface.co/kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.4)

@@ -10,7 +10,7 @@ OpenThaiGPT focuses on developing a Thai Chatbot system to have capabilities equ
 
 ## Features
 
-* The Third PoC Model for OpenThaiGPT 0.0.3
+* The Fourth PoC Model for OpenThaiGPT 0.0.4
 
 ## Installation
 Python>=3.6
@@ -31,4 +31,5 @@ CUDA 11.7
 import openthaigpt
 
 print(openthaigpt.generate("Q: อยากลดความอ้วนทำไง\n\nA:"))
+print(openthaigpt.zero("การลดน้ำหนักเป็นเรื่องที่ต้องพิจารณาอย่างละเอียดและรอบคอบเพื่อให้ได้ผลลัพธ์ที่ดีและมีประสิทธิภาพมากที่สุด"))
 ```
