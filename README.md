@@ -33,3 +33,15 @@ import openthaigpt
 print(openthaigpt.generate("Q: อยากลดความอ้วนทำไง\n\nA:"))
 print(openthaigpt.zero("การลดน้ำหนักเป็นเรื่องที่ต้องพิจารณาอย่างละเอียดและรอบคอบเพื่อให้ได้ผลลัพธ์ที่ดีและมีประสิทธิภาพมากที่สุด"))
 ```
+
+## By
+* Artificial Intelligence Entrepreneur Association of Thailand (AIEAT)
+* Artificial Intelligence Association of Thailand (AIAT)
+
+## Techical Support
+* NECTEC
+* iApp Technology
+* NVIDIA
+* Microsoft
+* Mahidol University
+* Gitbook
