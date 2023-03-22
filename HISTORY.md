@@ -1,6 +1,6 @@
 # History
 
-0.0.9 (2023-03-19)
+0.0.9 - 0.0.10 (2023-03-19)
 
 * Release OpenThaiGPT Zero
 
