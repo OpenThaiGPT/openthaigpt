@@ -1,17 +1,39 @@
 """Main module."""
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, AutoModelForCausalLM
+from transformers.models.mt5 import MT5Tokenizer
+from transformers import DataCollatorForLanguageModeling
+from peft import PeftModel, PeftConfig
 from evaluate import load
+import torch
+
 pretrained_name = "kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.4"
+tokenizer = None
+model = None
 
-tokenizer = GPT2Tokenizer.from_pretrained(pretrained_name, bos_token='<|startoftext|>',unk_token='<|unk|>', eos_token='<|endoftext|>', pad_token='<|pad|>')
-model = GPT2LMHeadModel.from_pretrained(pretrained_name).cuda()
-model.resize_token_embeddings(len(tokenizer))
+def generate(input, instruction="", model_name = "kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.4", min_length=100, max_length=300, top_k=50, top_p=0.95, num_beams=5, no_repeat_ngram_size=2, early_stopping=True, temperature=1.9):
+    global tokenizer, model
+    # load model
+    if (not tokenizer or not model):
+        if model_name == "kobkrit/openthaigpt-0.1.0-alpha":
+            config = PeftConfig.from_pretrained(model_name)
+            model = AutoModelForSeq2SeqLM.from_pretrained(config.base_model_name_or_path)
+            model = PeftModel.from_pretrained(model, model_name).cuda()
+            tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
+        else:
+            tokenizer = GPT2Tokenizer.from_pretrained(model_name, bos_token='<|startoftext|>',unk_token='<|unk|>', eos_token='<|endoftext|>', pad_token='<|pad|>')
+            model = GPT2LMHeadModel.from_pretrained(model_name).cuda()
 
-def generate(input, max_length=300, top_k=50, top_p=0.95, num_beam=5, no_repeat_ngram_size=2, early_stopping=True, temperature=1.9):
-    generated = tokenizer("<|startoftext|>"+input, return_tensors="pt").input_ids.cuda()
-    output = model.generate(generated, top_k=top_k, num_beams=num_beam, no_repeat_ngram_size=no_repeat_ngram_size, 
-        early_stopping=early_stopping, max_length=max_length, top_p=top_p, temperature=temperature)
-    return tokenizer.decode(output[0], skip_special_tokens=True)
+    # inference
+    if model_name == "kobkrit/openthaigpt-0.1.0-alpha":
+        generated = tokenizer('<instruction>: ' + str(instruction) + ' <input>: ' + str(input) + ' <output>: ', max_length=max_length, padding="max_length", truncation=True, return_tensors="pt").input_ids.cuda()
+    else:
+        generated = tokenizer("<|startoftext|>"+input, return_tensors="pt").input_ids.cuda()
+
+    with torch.no_grad():
+        output = model.generate(input_ids=generated, top_k=top_k, num_beams=num_beams, no_repeat_ngram_size=no_repeat_ngram_size, 
+            early_stopping=early_stopping, min_length=min_length, max_length=max_length, top_p=top_p, temperature=temperature)
+        return tokenizer.decode(output[0], skip_special_tokens=True)
 
 def zero(input, threshold=10):
     perplexity = load("perplexity", module_type="metric")

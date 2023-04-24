@@ -1,5 +1,9 @@
 # History
 
+0.1.0 (2023-04-23)
+* Support Model Selection
+* Add Version 0.1.0-alpha (https://huggingface.co/kobkrit/openthaigpt-0.1.0-alpha) to supported models.
+
 0.0.9 - 0.0.10 (2023-03-19)
 
 * Release OpenThaiGPT Zero

@@ -13,7 +13,9 @@ with open('HISTORY.md') as history_file:
 requirements = [
     'transformers[sentencepiece]',
     'torch',
-    'evaluate'
+    'evaluate',
+    'loralib',
+    'peft'
 ]
 
 test_requirements = [ ]
@@ -46,6 +48,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/OpenThaiGPT/openthaigpt',
-    version='0.0.10',
+    version='0.1.0',
     zip_safe=False,
 )
