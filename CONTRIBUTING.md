@@ -17,14 +17,12 @@ If you are reporting a bug, please include:
 * Any details about your local setup that might be helpful in troubleshooting.
 * Detailed steps to reproduce the bug.
 
-Fix Bugs
-~~~~~~~~
+## Fix Bugs
 
 Look through the GitHub issues for bugs. Anything tagged with "bug" and "help
 wanted" is open to whoever wants to implement it.
 
-Implement Features
-~~~~~~~~~~~~~~~~~~
+## Implement Features
 
 Look through the GitHub issues for features. Anything tagged with "enhancement"
 and "help wanted" is open to whoever wants to implement it.
@@ -46,8 +44,7 @@ If you are proposing a feature:
 * Remember that this is a volunteer-driven project, and that contributions
   are welcome :)
 
-Get Started!
-------------
+# Get Started!
 
 Ready to contribute? Here's how to set up `openthaigpt` for local development.
 
@@ -85,32 +82,28 @@ Ready to contribute? Here's how to set up `openthaigpt` for local development.
 
 7. Submit a pull request through the GitHub website.
 
-Pull Request Guidelines
------------------------
+# Pull Request Guidelines
 
 Before you submit a pull request, check that it meets these guidelines:
 
 1. The pull request should include tests.
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
-   feature to the list in README.rst.
+   feature to the list in README.md.
 3. The pull request should work for Python 3.5, 3.6, 3.7 and 3.8, and for PyPy. Check
    https://travis-ci.com/OpenThaiGPT/openthaigpt/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
-Tips
-----
+# Tips
 
 To run a subset of tests::
 
-
     $ python -m unittest tests.test_openthaigpt
 
-Deploying
----------
+# Deploying
 
 A reminder for the maintainers on how to deploy.
-Make sure all your changes are committed (including an entry in HISTORY.rst).
+Make sure all your changes are committed (including an entry in HISTORY.md).
 Then run::
 
 $ bump2version patch # possible: major / minor / patch
