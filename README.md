@@ -10,39 +10,37 @@ OpenThaiGPT focuses on developing a Thai Chatbot system to have capabilities equ
 
 ## Versions
 
-- Latest Code version: 0.1.0
+- OpenThaiGPT chat inference library (this repository): version 0.1.0
+- Released models
+    * kobkrit/openthaigpt-0.1.0-beta
+      - Pretraining Model: Facebook Llama (7 billion params)
+      - InstructDataset: 200,000 Various Translated Instruction Dataset 
+      - RLHF: None
 
-* You can now select the model_name as follows:
+    * kobkrit/openthaigpt-0.1.0-alpha
+      - Pretraining Model: ByT5-XL (3.74 billion params)
+      - InstructDataset: 50,000 Thai SelfInstruct 
+      - RLHF: None
 
-* kobkrit/openthaigpt-0.1.0-beta
-  - Pretraining Model: Facebook Llama (7 billion params)
-  - InstructDataset: 200,000 Various Translated Instruction Dataset 
-  - RLHF: None
+    * kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.4
+      - Pretraining Model: GPT-2 Thai-base
+      - InstructDataset: 300,000 Pantip + 5,000 Wiki QA => 12,920 Thai InstructGPT
+      - Reinforcement Learning from Human Feedback (RLHF): None
 
-* kobkrit/openthaigpt-0.1.0-alpha
-  - Pretraining Model: ByT5-XL (3.74 billion params)
-  - InstructDataset: 50,000 Thai SelfInstruct 
-  - RLHF: None
+    * kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.3
+      - Pretraining Model: GPT-2 Thai-base
+      - InstructDataset: 300,000 Pantip + 5,000 Wiki QA => 7,000 Thai InstructGPT
+      - RLHF: None
 
-* kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.4
-  - Pretraining Model: GPT-2 Thai-base
-  - InstructDataset: 300,000 Pantip + 5,000 Wiki QA => 12,920 Thai InstructGPT
-  - Reinforcement Learning from Human Feedback (RLHF): None
+    * kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.2
+      - Pretraining Model: GPT-2 Thai-base
+      - InstructDataset: 7,000 Thai InstructGPT
+      - RLHF: None
 
-* kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.3
-  - Pretraining Model: GPT-2 Thai-base
-  - InstructDataset: 300,000 Pantip + 5,000 Wiki QA => 7,000 Thai InstructGPT
-  - RLHF: None
-  
-* kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.2
-  - Pretraining Model: GPT-2 Thai-base
-  - InstructDataset: 7,000 Thai InstructGPT
-  - RLHF: None
-
-* kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.1
-  - Pretraining Model: GPT-2 Thai-base
-  - InstructDataset: 298,678 QA Pairs getting from 70,000 Pantip katoos + Wikipedia QA by iApp
-  - RLHF: None
+    * kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.1
+      - Pretraining Model: GPT-2 Thai-base
+      - InstructDataset: 298,678 QA Pairs getting from 70,000 Pantip katoos + Wikipedia QA by iApp
+      - RLHF: None
 
 ## Installation
 Python>=3.6
