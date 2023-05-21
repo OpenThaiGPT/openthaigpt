@@ -10,11 +10,39 @@ OpenThaiGPT focuses on developing a Thai Chatbot system to have capabilities equ
 
 ## Versions
 
-- Code version: 0.0.8
-- Model version: 0.0.4
+- Latest Code version: 0.1.0
+
+* You can now select the model_name as follows:
+
+* kobkrit/openthaigpt-0.1.0-beta
+  - Pretraining Model: Facebook Llama (7 billion params)
+  - InstructDataset: 200,000 Various Translated Instruction Dataset 
+  - RLHF: None
+
+* kobkrit/openthaigpt-0.1.0-alpha
+  - Pretraining Model: ByT5-XL (3.74 billion params)
+  - InstructDataset: 50,000 Thai SelfInstruct 
+  - RLHF: None
+
+* kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.4
   - Pretraining Model: GPT-2 Thai-base
   - InstructDataset: 300,000 Pantip + 5,000 Wiki QA => 12,920 Thai InstructGPT
   - Reinforcement Learning from Human Feedback (RLHF): None
+
+* kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.3
+  - Pretraining Model: GPT-2 Thai-base
+  - InstructDataset: 300,000 Pantip + 5,000 Wiki QA => 7,000 Thai InstructGPT
+  - RLHF: None
+  
+* kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.2
+  - Pretraining Model: GPT-2 Thai-base
+  - InstructDataset: 7,000 Thai InstructGPT
+  - RLHF: None
+
+* kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.1
+  - Pretraining Model: GPT-2 Thai-base
+  - InstructDataset: 298,678 QA Pairs getting from 70,000 Pantip katoos + Wikipedia QA by iApp
+  - RLHF: None
 
 ## Installation
 Python>=3.6
@@ -35,4 +63,28 @@ CUDA 11.7
 import openthaigpt
 
 print(openthaigpt.generate("Q: อยากลดความอ้วนทำไง\n\nA:"))
+print(openthaigpt.zero("การลดน้ำหนักเป็นเรื่องที่ต้องพิจารณาอย่างละเอียดและรอบคอบเพื่อให้ได้ผลลัพธ์ที่ดีและมีประสิทธิภาพมากที่สุด"))
 ```
+
+## Using 0.1.0-alpha model
+```
+import openthaigpt
+
+print(openthaigpt.generate(instruction="แปลภาษาอังกฤษเป็นภาษาไทย", input="We want to reduce weight.", model_name = "kobkrit/openthaigpt-0.1.0-alpha", min_length=50, max_length=300,  top_k=20, num_beams=5, no_repeat_ngram_size=20, temperature=1, early_stopping=True))
+```
+
+## Sponsored by
+* Pantip.com
+* ThaiSC
+
+## Collaborated By
+* Artificial Intelligence Entrepreneur Association of Thailand (AIEAT)
+* Artificial Intelligence Association of Thailand (AIAT)
+
+## Supported By
+* NECTEC
+* iApp Technology
+* NVIDIA
+* Microsoft
+* Mahidol University
+* Gitbook

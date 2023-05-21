@@ -19,4 +19,5 @@ class TestOpenthaigpt(unittest.TestCase):
     def test_0000_usage(self):
         """Test something."""
         answer = openthaigpt_module.generate("Q: สวัสดีครับ")
+        print(answer)
         assert answer is not None

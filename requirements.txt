@@ -1,4 +1,6 @@
 transformers[sentencepiece]
 datasets
+loralib
+peft
 #--extra-index-url https://download.pytorch.org/whl/cpu
 torch==1.13.1
