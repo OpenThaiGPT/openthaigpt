@@ -21,7 +21,7 @@ pretrained_name = "kobkrit/openthaigpt-0.1.0-beta"
 tokenizer = None
 model = None
 
-def generate(input, instruction="", model_name = "kobkrit/openthaigpt-0.1.0-beta", min_length=40, max_length=256, top_k=40, top_p=0.75, num_beams=1, no_repeat_ngram_size=0, early_stopping=True, temperature=0.1, load_8bit=False):
+def generate(input, instruction="", model_name = "kobkrit/openthaigpt-0.1.0-beta", min_length=0, max_length=256, top_k=40, top_p=0.75, num_beams=1, no_repeat_ngram_size=0, early_stopping=True, temperature=0.1, load_8bit=False):
     global tokenizer, model
     # load model
     if (not tokenizer or not model):
@@ -57,15 +57,22 @@ def generate(input, instruction="", model_name = "kobkrit/openthaigpt-0.1.0-beta
         elif model_name == "kobkrit/openthaigpt-0.1.0-alpha":
             config = PeftConfig.from_pretrained(model_name)
             model = AutoModelForSeq2SeqLM.from_pretrained(config.base_model_name_or_path)
-            model = PeftModel.from_pretrained(model, model_name).to(dev) # Use "to(dev)" instead of "cuda()" to make sure it works with cpu-only cases.
+            model = PeftModel.from_pretrained(model, model_name).to(dev)
             tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
         else:
             tokenizer = GPT2Tokenizer.from_pretrained(model_name, bos_token='<|startoftext|>',unk_token='<|unk|>', eos_token='<|endoftext|>', pad_token='<|pad|>')
-            model = GPT2LMHeadModel.from_pretrained(model_name).to(dev) # Use "to(dev)" instead of "cuda()" to make sure it works with cpu-only cases.
+            model = GPT2LMHeadModel.from_pretrained(model_name).to(dev)
 
     # inference
     if model_name == "kobkrit/openthaigpt-0.1.0-beta":
+        if (input and not instruction):
+          instruction = input
+          input = ""
+        
         prompt = f"Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction:\n{instruction}\n\n### Response:\n"
+        if (instruction and input):
+          prompt = f"Below is an instruction that describes a task, paired with an input that provides further context. Write a response that appropriately completes the request.\n\n### Instruction:\n{instruction}\n\n### Input:\n{input}\n\n### Response:\n"
+  
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(dev)
         generation_config = GenerationConfig(
@@ -74,10 +81,9 @@ def generate(input, instruction="", model_name = "kobkrit/openthaigpt-0.1.0-beta
             top_k=top_k,
             num_beams=num_beams,
             early_stopping=early_stopping,
-            min_length=min_length,
-            max_length=max_length,
-            no_repeat_ngram_size=no_repeat_ngram_size,
-            num_beams=num_beams
+            min_new_tokens=min_length,
+            max_new_tokens=max_length,
+            no_repeat_ngram_size=no_repeat_ngram_size
         )
         # Without streaming
         with torch.no_grad():
@@ -107,9 +113,9 @@ def generate(input, instruction="", model_name = "kobkrit/openthaigpt-0.1.0-beta
             return tokenizer.decode(output[0], skip_special_tokens=True)
 
 
-def zero(input, threshold=10):
+def zero(input, model_name="kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.4", threshold=10):
     perplexity = load("perplexity", module_type="metric")
-    results = perplexity.compute(predictions=[input], model_id=pretrained_name)
+    results = perplexity.compute(predictions=[input], model_id=model_name)
     score = results['perplexities'][0]
     isGeneratedFromOpenThaiGPT = False
     if (score < threshold):
