@@ -11,6 +11,7 @@ OpenThaiGPT focuses on developing a Thai Chatbot system to have capabilities equ
 ## Versions
 
 - OpenThaiGPT chat inference library (this repository): version 0.1.1
+
 - Released models
     * kobkrit/openthaigpt-0.1.0-beta
       - Pretraining Model: Facebook Llama (7 billion params)
@@ -63,12 +64,11 @@ CUDA 11.6
 CUDA 11.7
 ``$ pip install openthaigpt torch``
 
-## Usage
+## Using 0.1.0-beta model
 ```
 import openthaigpt
 
-print(openthaigpt.generate("Q: อยากลดความอ้วนทำไง\n\nA:"))
-print(openthaigpt.zero("การลดน้ำหนักเป็นเรื่องที่ต้องพิจารณาอย่างละเอียดและรอบคอบเพื่อให้ได้ผลลัพธ์ที่ดีและมีประสิทธิภาพมากที่สุด"))
+print(openthaigpt.generate(instruction="แปลภาษาอังกฤษเป็นภาษาไทย", input="We want to reduce weight.", model_name = "kobkrit/openthaigpt-0.1.0-beta", min_length=50, max_length=300, top_p=0.75, top_k=40, num_beams=1, no_repeat_ngram_size=0, temperature=0.1, early_stopping=True, load_8bit=False))
 ```
 
 ## Using 0.1.0-alpha model
@@ -76,6 +76,15 @@ print(openthaigpt.zero("การลดน้ำหนักเป็นเร�
 import openthaigpt
 
 print(openthaigpt.generate(instruction="แปลภาษาอังกฤษเป็นภาษาไทย", input="We want to reduce weight.", model_name = "kobkrit/openthaigpt-0.1.0-alpha", min_length=50, max_length=300,  top_k=20, num_beams=5, no_repeat_ngram_size=20, temperature=1, early_stopping=True))
+```
+
+
+## Usage 0.0.1-0.0.4 model
+```
+import openthaigpt
+
+print(openthaigpt.generate("Q: อยากลดความอ้วนทำไง\n\nA:", model_name = "kobkrit/openthaigpt-gpt2-instructgpt-poc-0.0.4"))
+print(openthaigpt.zero("การลดน้ำหนักเป็นเรื่องที่ต้องพิจารณาอย่างละเอียดและรอบคอบเพื่อให้ได้ผลลัพธ์ที่ดีและมีประสิทธิภาพมากที่สุด"))
 ```
 
 ## Sponsored by
