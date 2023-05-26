@@ -10,7 +10,7 @@ OpenThaiGPT focuses on developing a Thai Chatbot system to have capabilities equ
 
 ## Versions
 
-- OpenThaiGPT chat inference library (this repository): version 0.1.0
+- OpenThaiGPT chat inference library (this repository): version 0.1.1
 - Released models
     * kobkrit/openthaigpt-0.1.0-beta
       - Pretraining Model: Facebook Llama (7 billion params)
