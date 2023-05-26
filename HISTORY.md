@@ -1,5 +1,8 @@
 # History
 
+0.1.1 (2023-05-26)
+* Add Version 0.1.0-beta (https://huggingface.co/kobkrit/openthaigpt-0.1.0-beta)
+
 0.1.0 (2023-04-23)
 * Support Model Selection
 * Add Version 0.1.0-alpha (https://huggingface.co/kobkrit/openthaigpt-0.1.0-alpha) to supported models.
